@@ -1,0 +1,117 @@
+title: "Информатика: Вариант 2"
+class: "7М"
+questions:
+  - id: q1
+    type: multichoice
+    prompt: "Выберите устройства ввода информации и запишите в ответе их номера в порядке возрастания."
+    options:
+      - id: "1"
+        label: "микрофон"
+      - id: "2"
+        label: "монитор"
+      - id: "3"
+        label: "сканер"
+      - id: "4"
+        label: "принтер"
+      - id: "5"
+        label: "веб-камера"
+      - id: "6"
+        label: "жёсткий диск"
+      - id: "7"
+        label: "клавиатура"
+      - id: "8"
+        label: "колонки"
+    answer: ["1", "3", "5", "7"]
+    points: 1
+
+  - id: q2
+    type: choice
+    prompt: "В каталоге C:\\Проекты\\ хранился файл Отчёт.docx. После создания подкаталога 2026 и перемещения файла в него полное имя стало C:\\Проекты\\2026\\Отчёт.docx. Укажите полное имя файла до перемещения."
+    options:
+      - id: "1"
+        label: "C:\\2026\\Отчёт.docx"
+      - id: "2"
+        label: "C:\\Проекты\\Отчёт.docx"
+      - id: "3"
+        label: "C:\\Проекты\\2026"
+      - id: "4"
+        label: "C:\\Отчёт.docx"
+    answer: "2"
+    points: 1
+
+  - id: q3
+    type: matching_multi
+    prompt: "Установите соответствие между расширениями и типами файлов."
+    left_items:
+      - id: A
+        label: ".txt"
+      - id: B
+        label: ".avi"
+      - id: C
+        label: ".wav"
+      - id: D
+        label: ".zip"
+      - id: E
+        label: ".bmp"
+      - id: F
+        label: ".exe"
+    right_items:
+      - id: "1"
+        label: "текстовый файл"
+      - id: "2"
+        label: "видеофайл"
+      - id: "3"
+        label: "звуковой файл"
+      - id: "4"
+        label: "архив"
+      - id: "5"
+        label: "исполняемый файл"
+      - id: "6"
+        label: "графический файл"
+    answer:
+      A: "1"
+      B: "2"
+      C: "3"
+      D: "4"
+      E: "6"
+      F: "5"
+    points: 1
+
+  - id: q4
+    type: ordering
+    prompt: "Определите правильную последовательность фрагментов адреса файла report.pdf на сервере school.ru по протоколу https."
+    items:
+      - id: "a"
+        label: "https"
+      - id: "b"
+        label: "://"
+      - id: "c"
+        label: "school"
+      - id: "d"
+        label: ".ru"
+      - id: "e"
+        label: "/"
+      - id: "f"
+        label: "report."
+      - id: "g"
+        label: "pdf"
+    answer: ["a", "b", "c", "d", "e", "f", "g"]
+    points: 1
+
+  - id: q5
+    type: number
+    prompt: "Сколько файлов размером 128 Мбайт можно записать на флеш-накопитель объёмом 2 Гбайт?"
+    answer: 16
+    points: 1
+
+  - id: q6
+    type: number
+    prompt: "Сообщение из 64-символьного алфавита содержит 48 символов. Определите объём информации в байтах."
+    answer: 36
+    points: 1
+
+  - id: q7
+    type: number
+    prompt: "Скорость передачи 2 048 000 бит/с. Передача длилась 10 секунд. Определите размер файла в Кбайт."
+    answer: 2500
+    points: 1

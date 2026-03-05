@@ -1,0 +1,703 @@
+title: Линейные уравнения
+description_latex: Решите линейные уравнения и запишите ответ.
+questions:
+- id: linear_001
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $6x + 6 = 36 + 3x$.
+  answer:
+    value: 10
+    tol: 0
+- id: linear_002
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $5x + 2 = -12 + 3x$.
+  answer:
+    value: -7
+    tol: 0
+- id: linear_003
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x - 10 = 270 + 4x$.
+  answer:
+    value: -20
+    tol: 0
+- id: linear_004
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x - 1 = -45 - 6x$.
+  answer:
+    value: -11
+    tol: 0
+- id: linear_005
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x - 4 = 52 - 5x$.
+  answer:
+    value: 4
+    tol: 0
+- id: linear_006
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $8x - 1 = -113$.
+  answer:
+    value: -14
+    tol: 0
+- id: linear_007
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $8x = 60 - 4x$.
+  answer:
+    value: 5
+    tol: 0
+- id: linear_008
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $6x + 12 = -60 - 3x$.
+  answer:
+    value: -8
+    tol: 0
+- id: linear_009
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x - 6 = -94 - 2x$.
+  answer:
+    value: 11
+    tol: 0
+- id: linear_010
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x - 5 = -25 + 6x$.
+  answer:
+    value: 4
+    tol: 0
+- id: linear_011
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x + 8 = -60 - 3x$.
+  answer:
+    value: -17
+    tol: 0
+- id: linear_012
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x + 18 = 6 - 8x$.
+  answer:
+    value: -4
+    tol: 0
+- id: linear_013
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x - 13 = -103 + 10x$.
+  answer:
+    value: 10
+    tol: 0
+- id: linear_014
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $5x + 9 = -216 - 10x$.
+  answer:
+    value: -15
+    tol: 0
+- id: linear_015
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x - 20 = -2 - 4x$.
+  answer:
+    value: 18
+    tol: 0
+- id: linear_016
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-8x + 17 = -73 + 7x$.
+  answer:
+    value: 6
+    tol: 0
+- id: linear_017
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $8x - 10 = -2 + 6x$.
+  answer:
+    value: 4
+    tol: 0
+- id: linear_018
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x - 12 = -220 - 4x$.
+  answer:
+    value: -16
+    tol: 0
+- id: linear_019
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-8x - 1 = 8 + x$.
+  answer:
+    value: -1
+    tol: 0
+- id: linear_020
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x - 6 = 8 + 3x$.
+  answer:
+    value: 2
+    tol: 0
+- id: linear_021
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x + 4 = 46 + 4x$.
+  answer:
+    value: -14
+    tol: 0
+- id: linear_022
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x - 16 = -121 - 10x$.
+  answer:
+    value: -15
+    tol: 0
+- id: linear_023
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x - 11 = 103 + 7x$.
+  answer:
+    value: -19
+    tol: 0
+- id: linear_024
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x + 8 = 144 - 2x$.
+  answer:
+    value: -17
+    tol: 0
+- id: linear_025
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-6x + 6 = 201 + 7x$.
+  answer:
+    value: -15
+    tol: 0
+- id: linear_026
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x + 2 = 154 - 10x$.
+  answer:
+    value: 19
+    tol: 0
+- id: linear_027
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $5x + 2 = 5 + 2x$.
+  answer:
+    value: 1
+    tol: 0
+- id: linear_028
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $6x + 5 = -71 + 2x$.
+  answer:
+    value: -19
+    tol: 0
+- id: linear_029
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x + 2 = 35 - 6x$.
+  answer:
+    value: 11
+    tol: 0
+- id: linear_030
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x + 19 = -29 - 6x$.
+  answer:
+    value: 12
+    tol: 0
+- id: linear_031
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $6x + 18 = 28 + 7x$.
+  answer:
+    value: -10
+    tol: 0
+- id: linear_032
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x + 13 = 103 - 7x$.
+  answer:
+    value: 9
+    tol: 0
+- id: linear_033
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x = -42 + 8x$.
+  answer:
+    value: 6
+    tol: 0
+- id: linear_034
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-8x + 12 = -108$.
+  answer:
+    value: 15
+    tol: 0
+- id: linear_035
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $6x - 3 = 4 + 5x$.
+  answer:
+    value: 7
+    tol: 0
+- id: linear_036
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $8x - 19 = 107 - 6x$.
+  answer:
+    value: 9
+    tol: 0
+- id: linear_037
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x = -33 + x$.
+  answer:
+    value: 11
+    tol: 0
+- id: linear_038
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $8x + 4 = -12 + 4x$.
+  answer:
+    value: -4
+    tol: 0
+- id: linear_039
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x + 2 = 35 - 2x$.
+  answer:
+    value: -11
+    tol: 0
+- id: linear_040
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x - 12 = -77 + 4x$.
+  answer:
+    value: -13
+    tol: 0
+- id: linear_041
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x + 17 = -19 - 8x$.
+  answer:
+    value: -9
+    tol: 0
+- id: linear_042
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-9x + 18 = -32 + x$.
+  answer:
+    value: 5
+    tol: 0
+- id: linear_043
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x - 2 = 112 - 10x$.
+  answer:
+    value: 6
+    tol: 0
+- id: linear_044
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x - 14 = 18 + 5x$.
+  answer:
+    value: 8
+    tol: 0
+- id: linear_045
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $7x + 18 = -9 + 4x$.
+  answer:
+    value: -9
+    tol: 0
+- id: linear_046
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x - 5 = 123 - 6x$.
+  answer:
+    value: 16
+    tol: 0
+- id: linear_047
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x + 2 = -117 + 10x$.
+  answer:
+    value: 17
+    tol: 0
+- id: linear_048
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $5x + 18 = -90 - 7x$.
+  answer:
+    value: -9
+    tol: 0
+- id: linear_049
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x - 17 = -9 + 2x$.
+  answer:
+    value: -2
+    tol: 0
+- id: linear_050
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x + 9 = 153 + 9x$.
+  answer:
+    value: -12
+    tol: 0
+- id: linear_051
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x + 20 = -115 + 5x$.
+  answer:
+    value: 15
+    tol: 0
+- id: linear_052
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x - 9 = -44 - 8x$.
+  answer:
+    value: -5
+    tol: 0
+- id: linear_053
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x - 13 = -83 - 5x$.
+  answer:
+    value: 14
+    tol: 0
+- id: linear_054
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x - 17 = -13 - 3x$.
+  answer:
+    value: 1
+    tol: 0
+- id: linear_055
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-8x - 7 = -167 + 8x$.
+  answer:
+    value: 10
+    tol: 0
+- id: linear_056
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x + 14 = 44 + 10x$.
+  answer:
+    value: -2
+    tol: 0
+- id: linear_057
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x + 17 = -2 - 11x$.
+  answer:
+    value: -19
+    tol: 0
+- id: linear_058
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x + 17 = 177 - 5x$.
+  answer:
+    value: 20
+    tol: 0
+- id: linear_059
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $6x - 7 = -7 + 7x$.
+  answer:
+    value: 0
+    tol: 0
+- id: linear_060
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x - 5 = 11 - 7x$.
+  answer:
+    value: 2
+    tol: 0
+- id: linear_061
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x - 12 = -7 + 5x$.
+  answer:
+    value: 1
+    tol: 0
+- id: linear_062
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x - 11 = 31 + 4x$.
+  answer:
+    value: -3
+    tol: 0
+- id: linear_063
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x - 9 = 27 + 2x$.
+  answer:
+    value: -6
+    tol: 0
+- id: linear_064
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x + 11 = 102 - 10x$.
+  answer:
+    value: 13
+    tol: 0
+- id: linear_065
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x + 15 = -90 + 10x$.
+  answer:
+    value: 15
+    tol: 0
+- id: linear_066
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x + 16 = 86$.
+  answer:
+    value: 7
+    tol: 0
+- id: linear_067
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x - 6 = 102 + 8x$.
+  answer:
+    value: -18
+    tol: 0
+- id: linear_068
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-7x + 2 = 40 - 5x$.
+  answer:
+    value: -19
+    tol: 0
+- id: linear_069
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x + 10 = -111 - 2x$.
+  answer:
+    value: -11
+    tol: 0
+- id: linear_070
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x + 11 = 87 - 6x$.
+  answer:
+    value: 19
+    tol: 0
+- id: linear_071
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x - 18 = -56 - 9x$.
+  answer:
+    value: -2
+    tol: 0
+- id: linear_072
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x - 14 = -18 - 3x$.
+  answer:
+    value: -2
+    tol: 0
+- id: linear_073
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-8x + 13 = -37 + 2x$.
+  answer:
+    value: 5
+    tol: 0
+- id: linear_074
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $7x + 4 = 10 + 6x$.
+  answer:
+    value: 6
+    tol: 0
+- id: linear_075
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x - 14 = -104 + 6x$.
+  answer:
+    value: 9
+    tol: 0
+- id: linear_076
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $7x - 6 = -116 - 4x$.
+  answer:
+    value: -10
+    tol: 0
+- id: linear_077
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $7x = -5 + 8x$.
+  answer:
+    value: 5
+    tol: 0
+- id: linear_078
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $7x + 10 = 24$.
+  answer:
+    value: 2
+    tol: 0
+- id: linear_079
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x - 18 = -130 + 4x$.
+  answer:
+    value: 8
+    tol: 0
+- id: linear_080
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x + 10 = 82 - 2x$.
+  answer:
+    value: 6
+    tol: 0
+- id: linear_081
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x - 2 = 138 - x$.
+  answer:
+    value: 14
+    tol: 0
+- id: linear_082
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $9x + 10 = -74 - 5x$.
+  answer:
+    value: -6
+    tol: 0
+- id: linear_083
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x - 1 = 67 - 7x$.
+  answer:
+    value: 4
+    tol: 0
+- id: linear_084
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x + 4 = -14 - 6x$.
+  answer:
+    value: -18
+    tol: 0
+- id: linear_085
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $6x - 19 = -49 - 4x$.
+  answer:
+    value: -3
+    tol: 0
+- id: linear_086
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-6x - 17 = 19 - 3x$.
+  answer:
+    value: -12
+    tol: 0
+- id: linear_087
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x - 5 = -19 + 2x$.
+  answer:
+    value: 2
+    tol: 0
+- id: linear_088
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-6x + 10 = -214 + 10x$.
+  answer:
+    value: 14
+    tol: 0
+- id: linear_089
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x + 1 = 25 + 6x$.
+  answer:
+    value: -6
+    tol: 0
+- id: linear_090
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x + 17 = 89 + 8x$.
+  answer:
+    value: -12
+    tol: 0
+- id: linear_091
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x - 13 = 17 + 9x$.
+  answer:
+    value: -6
+    tol: 0
+- id: linear_092
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $7x + 19 = -80 - 2x$.
+  answer:
+    value: -11
+    tol: 0
+- id: linear_093
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-10x + 16 = 16 + 2x$.
+  answer:
+    value: 0
+    tol: 0
+- id: linear_094
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-8x + 1 = -56 - 5x$.
+  answer:
+    value: 19
+    tol: 0
+- id: linear_095
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-7x + 19 = -14 - 10x$.
+  answer:
+    value: -11
+    tol: 0
+- id: linear_096
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x - 15 = -26 + 9x$.
+  answer:
+    value: -11
+    tol: 0
+- id: linear_097
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x - 1 = 47 - 2x$.
+  answer:
+    value: -16
+    tol: 0
+- id: linear_098
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $10x + 19 = -95 + 4x$.
+  answer:
+    value: -19
+    tol: 0
+- id: linear_099
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x - 18 = -62$.
+  answer:
+    value: 11
+    tol: 0
+- id: linear_100
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x + 6 = -18 + 4x$.
+  answer:
+    value: 12
+    tol: 0

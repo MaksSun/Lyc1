@@ -1,0 +1,703 @@
+﻿title: 'Квадратные уравнения: корни'
+description_latex: Решите квадратные уравнения и запишите указанный корень.
+questions:
+- id: quad_001
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 - 14x + 16 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_002
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 8x + 15 = 0$ и запишите **больший** корень.
+  answer:
+    value: -3
+    tol: 0
+- id: quad_003
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 + 12x - 15 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -5
+    tol: 0
+- id: quad_004
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 - 11x - 30 = 0$ и запишите **больший** корень.
+  answer:
+    value: -5
+    tol: 0
+- id: quad_005
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 - 36x + 81 = 0$ и запишите **больший** корень.
+  answer:
+    value: 9
+    tol: 0
+- id: quad_006
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 + 8x - 24 = 0$ и запишите **больший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_007
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + 5x + 50 = 0$ и запишите **больший** корень.
+  answer:
+    value: 10
+    tol: 0
+- id: quad_008
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 - 28x - 90 = 0$ и запишите **больший** корень.
+  answer:
+    value: -5
+    tol: 0
+- id: quad_009
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 + 24x - 54 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 3
+    tol: 0
+- id: quad_010
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 + 10x - 8 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 1
+    tol: 0
+- id: quad_011
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + 12x - 32 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 4
+    tol: 0
+- id: quad_012
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 - 12x + 10 = 0$ и запишите **больший** корень.
+  answer:
+    value: 5
+    tol: 0
+- id: quad_013
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x^2 - 15x = 0$ и запишите **меньший** корень.
+  answer:
+    value: -3
+    tol: 0
+- id: quad_014
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 - 48x + 180 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_015
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 - 72x + 320 = 0$ и запишите **больший** корень.
+  answer:
+    value: 10
+    tol: 0
+- id: quad_016
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 - 44x + 120 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 5
+    tol: 0
+- id: quad_017
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 - 27x - 60 = 0$ и запишите **больший** корень.
+  answer:
+    value: -4
+    tol: 0
+- id: quad_018
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 - 4x + 12 = 0$ и запишите **больший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_019
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 13x + 30 = 0$ и запишите **больший** корень.
+  answer:
+    value: -3
+    tol: 0
+- id: quad_020
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 - 16x = 0$ и запишите **больший** корень.
+  answer:
+    value: 4
+    tol: 0
+- id: quad_021
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 - 72x + 320 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 8
+    tol: 0
+- id: quad_022
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 - 42x + 135 = 0$ и запишите **больший** корень.
+  answer:
+    value: 9
+    tol: 0
+- id: quad_023
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 - 10x - 12 = 0$ и запишите **больший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_024
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x^2 - 40x - 60 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -6
+    tol: 0
+- id: quad_025
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 + 36x - 96 = 0$ и запишите **больший** корень.
+  answer:
+    value: 8
+    tol: 0
+- id: quad_026
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 2x - 24 = 0$ и запишите **больший** корень.
+  answer:
+    value: 4
+    tol: 0
+- id: quad_027
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 - 14x + 20 = 0$ и запишите **больший** корень.
+  answer:
+    value: 5
+    tol: 0
+- id: quad_028
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 - 22x - 56 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -7
+    tol: 0
+- id: quad_029
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 + 3x = 0$ и запишите **больший** корень.
+  answer:
+    value: 1
+    tol: 0
+- id: quad_030
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 10x = 0$ и запишите **меньший** корень.
+  answer:
+    value: -10
+    tol: 0
+- id: quad_031
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 + 15x = 0$ и запишите **меньший** корень.
+  answer:
+    value: -5
+    tol: 0
+- id: quad_032
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x^2 + 56x - 192 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_033
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 + 28x + 96 = 0$ и запишите **больший** корень.
+  answer:
+    value: -6
+    tol: 0
+- id: quad_034
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 - 8x + 24 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -6
+    tol: 0
+- id: quad_035
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 + 32 = 0$ и запишите **больший** корень.
+  answer:
+    value: 4
+    tol: 0
+- id: quad_036
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + x - 42 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -7
+    tol: 0
+- id: quad_037
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 + 2x + 4 = 0$ и запишите **больший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_038
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 + 34x - 140 = 0$ и запишите **больший** корень.
+  answer:
+    value: 10
+    tol: 0
+- id: quad_039
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 - 16x + 30 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 3
+    tol: 0
+- id: quad_040
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 - 24x - 36 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -6
+    tol: 0
+- id: quad_041
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 - 6x + 24 = 0$ и запишите **больший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_042
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 + 18x = 0$ и запишите **больший** корень.
+  answer:
+    value: 0
+    tol: 0
+- id: quad_043
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 - 34x - 144 = 0$ и запишите **больший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_044
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x^2 - 44x - 120 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -6
+    tol: 0
+- id: quad_045
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $5x^2 - 55x + 140 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 4
+    tol: 0
+- id: quad_046
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 + 14x - 16 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_047
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 - 6x = 0$ и запишите **больший** корень.
+  answer:
+    value: 0
+    tol: 0
+- id: quad_048
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 + 52x + 144 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -9
+    tol: 0
+- id: quad_049
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + 5x + 36 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -4
+    tol: 0
+- id: quad_050
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 + 27x - 60 = 0$ и запишите **больший** корень.
+  answer:
+    value: 5
+    tol: 0
+- id: quad_051
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 + 39x - 120 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 5
+    tol: 0
+- id: quad_052
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 - 30x + 72 = 0$ и запишите **больший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_053
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + 6x + 40 = 0$ и запишите **больший** корень.
+  answer:
+    value: 10
+    tol: 0
+- id: quad_054
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 + 54x + 240 = 0$ и запишите **больший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_055
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 3x + 2 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -2
+    tol: 0
+- id: quad_056
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 5x - 6 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -6
+    tol: 0
+- id: quad_057
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 - 6x = 0$ и запишите **меньший** корень.
+  answer:
+    value: -2
+    tol: 0
+- id: quad_058
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x^2 - 36x - 72 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -6
+    tol: 0
+- id: quad_059
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $5x^2 - 50x + 120 = 0$ и запишите **больший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_060
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x^2 - 56x - 180 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -9
+    tol: 0
+- id: quad_061
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 - 6x - 40 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -4
+    tol: 0
+- id: quad_062
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x^2 + 4 = 0$ и запишите **больший** корень.
+  answer:
+    value: 1
+    tol: 0
+- id: quad_063
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 14x + 40 = 0$ и запишите **больший** корень.
+  answer:
+    value: -4
+    tol: 0
+- id: quad_064
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 + 16x + 30 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -5
+    tol: 0
+- id: quad_065
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + 3x - 2 = 0$ и запишите **больший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_066
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 + 30x + 63 = 0$ и запишите **больший** корень.
+  answer:
+    value: -3
+    tol: 0
+- id: quad_067
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 8x = 0$ и запишите **меньший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_068
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 6x - 16 = 0$ и запишите **больший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_069
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 + 34x - 144 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 8
+    tol: 0
+- id: quad_070
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 + 28x + 80 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -10
+    tol: 0
+- id: quad_071
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 - 11x + 18 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_072
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x^2 + 24x - 32 = 0$ и запишите **больший** корень.
+  answer:
+    value: 4
+    tol: 0
+- id: quad_073
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 - 6x + 4 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 1
+    tol: 0
+- id: quad_074
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 - x + 42 = 0$ и запишите **больший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_075
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 + 48x + 140 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -7
+    tol: 0
+- id: quad_076
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $5x^2 + 30x + 25 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -5
+    tol: 0
+- id: quad_077
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 - 7x + 10 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_078
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 - 20x + 24 = 0$ и запишите **меньший** корень.
+  answer:
+    value: 2
+    tol: 0
+- id: quad_079
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-5x^2 - 5x = 0$ и запишите **больший** корень.
+  answer:
+    value: 0
+    tol: 0
+- id: quad_080
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 - 15x = 0$ и запишите **больший** корень.
+  answer:
+    value: 5
+    tol: 0
+- id: quad_081
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $4x^2 + 24x + 32 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -4
+    tol: 0
+- id: quad_082
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 - 16x - 30 = 0$ и запишите **больший** корень.
+  answer:
+    value: -3
+    tol: 0
+- id: quad_083
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-4x^2 + 28x - 24 = 0$ и запишите **больший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_084
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 + 10x - 12 = 0$ и запишите **больший** корень.
+  answer:
+    value: 3
+    tol: 0
+- id: quad_085
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 - 4x - 45 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -5
+    tol: 0
+- id: quad_086
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 - x - 72 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_087
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + 9x + 10 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -1
+    tol: 0
+- id: quad_088
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + x + 90 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -9
+    tol: 0
+- id: quad_089
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 - 5x + 36 = 0$ и запишите **больший** корень.
+  answer:
+    value: 4
+    tol: 0
+- id: quad_090
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-3x^2 + 18x = 0$ и запишите **больший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_091
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + 3x - 54 = 0$ и запишите **больший** корень.
+  answer:
+    value: 6
+    tol: 0
+- id: quad_092
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 - 100 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -10
+    tol: 0
+- id: quad_093
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $x^2 + x - 90 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -10
+    tol: 0
+- id: quad_094
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $3x^2 + 30x + 48 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_095
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + 16x - 63 = 0$ и запишите **больший** корень.
+  answer:
+    value: 9
+    tol: 0
+- id: quad_096
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 - 16x = 0$ и запишите **больший** корень.
+  answer:
+    value: 8
+    tol: 0
+- id: quad_097
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-2x^2 - 6x - 4 = 0$ и запишите **больший** корень.
+  answer:
+    value: -1
+    tol: 0
+- id: quad_098
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 - 9x - 8 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -8
+    tol: 0
+- id: quad_099
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $2x^2 + 6x + 4 = 0$ и запишите **больший** корень.
+  answer:
+    value: -1
+    tol: 0
+- id: quad_100
+  type: number
+  points: 1
+  prompt_latex: Решите уравнение $-x^2 + x + 90 = 0$ и запишите **меньший** корень.
+  answer:
+    value: -9
+    tol: 0

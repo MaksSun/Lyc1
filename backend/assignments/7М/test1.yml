@@ -1,0 +1,313 @@
+id: final_test_math_7
+title: "Итоговый тест по алгебре, 7 класс"
+time_limit_minutes: 1
+randomize: true
+random_count: 3
+
+questions:
+  - id: q1_equation
+    type: number
+    prompt: "Решите: $5x - 10 = 15$"
+    answer: 5
+    points: 1
+
+  - id: q2_choice
+    type: choice
+    prompt: "Выберите верное равенство"
+    options:
+      - id: a
+        label: "$(a+b)^2 = a^2 + b^2$"
+      - id: b
+        label: "$(a-b)^2 = a^2 - 2ab + b^2$"
+    answer: b
+    points: 1
+
+  - id: q3_order
+    type: ordering
+    prompt: "Расставьте числа в порядке возрастания"
+    items:
+      - id: n1
+        label: "-5"
+      - id: n2
+        label: "0.5"
+      - id: n3
+        label: "-10"
+      - id: n4
+        label: "1"
+    answer: [n3, n1, n2, n4]
+    points: 2
+
+  - id: q4_multichoice
+    type: multichoice
+    prompt: "Выберите простые числа"
+    options:
+      - id: num1
+        label: "7"
+      - id: num2
+        label: "9"
+      - id: num3
+        label: "11"
+      - id: num4
+        label: "12"
+    answer: [num1, num3]
+    points: 2
+
+  - id: q5
+    type: drag_drop
+    prompt: "Распределите числа по группам"
+    zones:
+      - id: even
+        label: "Чётные"
+      - id: odd
+        label: "Нечётные"
+    items:
+      - id: n2
+        label: "2"
+      - id: n3
+        label: "3"
+      - id: n4
+        label: "4"
+      - id: n5
+        label: "5"
+      - id: n6
+        label: "6"
+      - id: n7
+        label: "7"
+    answer:
+      even: [n2, n4, n6]
+      odd: [n3, n5, n7]
+    points: 3
+
+  - id: q6
+    type: matching
+    prompt: "Установите соответствие между понятием и определением"
+    left_items:
+      - id: l1
+        label: "Периметр"
+      - id: l2
+        label: "Площадь"
+      - id: l3
+        label: "Диагональ"
+    right_items:
+      - id: r1
+        label: "Отрезок, соединяющий противоположные вершины"
+      - id: r2
+        label: "Сумма длин всех сторон фигуры"
+      - id: r3
+        label: "Мера плоской фигуры в квадратных единицах"
+    answer:
+      l1: r2
+      l2: r3
+      l3: r1
+    points: 3
+
+  - id: q7
+    type: rating
+    prompt: "Оцените урок"
+    rating_min: 1
+    rating_max: 5
+    rating_label_min: "Плохо"
+    rating_label_max: "Отлично"
+    points: 0
+
+  - id: q8
+    type: choice
+    prompt: "Что понравилось больше всего?"
+    options:
+      - id: a
+        label: "Объяснение материала"
+      - id: b
+        label: "Практические задания"
+      - id: c
+        label: "Работа в группах"
+      - id: d
+        label: "Самостоятельная работа"
+    points: 0
+
+  - id: q9
+    type: text_long
+    prompt: "Что бы вы хотели улучшить?"
+    points: 0
+
+  - id: q10
+    type: number
+    prompt: "Вычислите: $\\frac{15}{3} + 2^3$"
+    answer: 13
+    points: 2
+
+  - id: q11
+    type: text
+    prompt: "Как называется прямоугольный треугольник с двумя равными катетами?"
+    answer: "равнобедренный"
+    points: 1
+    hint: "Подсказка: два катета равны"
+
+  - id: q12
+    type: choice
+    prompt: "Выберите правильную формулу площади круга"
+    options:
+      - id: a
+        label: "$S = \\pi r$"
+      - id: b
+        label: "$S = 2\\pi r$"
+      - id: c
+        label: "$S = \\pi r^2$"
+      - id: d
+        label: "$S = \\pi d$"
+    answer: c
+    points: 1
+
+  - id: q13
+    type: drag_drop
+    prompt: "Распределите фигуры по типам"
+    zones:
+      - id: polygon
+        label: "Многоугольники"
+      - id: round
+        label: "Круглые фигуры"
+    items:
+      - id: square
+        label: "Квадрат"
+      - id: circle
+        label: "Круг"
+      - id: triangle
+        label: "Треугольник"
+      - id: ellipse
+        label: "Эллипс"
+    answer:
+      polygon: [square, triangle]
+      round: [circle, ellipse]
+    points: 2
+
+  - id: q14
+    type: number
+    prompt: "Решите уравнение: $2x + 4 = 10$"
+    answer: 3
+    points: 1
+    hint: "Перенесите 4 в правую часть"
+
+  - id: q15
+    type: number
+    prompt: "Найдите x: $3x - 6 = 9$"
+    answer: 5
+    points: 1
+
+  - id: q16
+    type: choice
+    prompt: "Какое из чисел является решением $x^2 = 9$?"
+    options:
+      - id: a
+        label: "x = 2"
+      - id: b
+        label: "x = 3"
+      - id: c
+        label: "x = 4"
+      - id: d
+        label: "x = 9"
+    answer: b
+    points: 1
+    hint: "Извлеките квадратный корень"
+
+  - id: q17
+    type: multichoice
+    prompt: "Выберите все решения уравнения $x^2 - 4 = 0$"
+    options:
+      - id: a
+        label: "x = -2"
+      - id: b
+        label: "x = 0"
+      - id: c
+        label: "x = 2"
+      - id: d
+        label: "x = 4"
+    answer: [a, c]
+    points: 2
+
+  - id: q10_match_multi
+    type: matching_multi
+    prompt: "Сопоставьте устройства с их категориями"
+    points: 4
+    left_items:
+      - id: keyboard
+        label: Клавиатура
+      - id: monitor
+        label: Монитор
+    right_items:
+      - id: input
+        label: Устройство ввода
+      - id: output
+        label: Устройство вывода
+      - id: peripheral
+        label: Периферийное устройство
+    answer:
+      keyboard: [input, peripheral]
+      monitor: [output, peripheral]
+
+  - id: q13_table_select
+    type: table_select
+    prompt: "Классифицируйте устройства: выберите тип для каждого"
+    points: 3
+    table_options: [ "Устройство ввода", "Устройство вывода", "Устройство хранения", "Процессор" ]
+    table_headers: [ "Устройство", "Тип устройства" ]
+    table_rows:
+      - label: "Клавиатура"
+        cells: [ "?" ]
+      - label: "Монитор"
+        cells: [ "?" ]
+      - label: "Процессор"
+        cells: [ "?" ]
+    answer:
+      "Клавиатура": [ "Устройство ввода" ]
+      "Монитор": [ "Устройство вывода" ]
+      "Процессор": [ "Процессор" ]
+
+  - id: q12_table_fill
+    type: table_fill
+    prompt: "Заполните таблицу: вычислите значения выражений"
+    points: 3
+    table_headers: [ "", "x=1", "x=2", "x=3" ]
+    table_rows:
+      - label: "2x"
+        cells: [ "?", "?", "?" ]
+      - label: "x²"
+        cells: [ "?", "?", "?" ]
+      - label: "x² + 2x"
+        cells: [ "?", "?", "?" ]
+    answer:
+      "2x": [ "2", "4", "6" ]
+      "x²": [ "1", "4", "9" ]
+      "x² + 2x": [ "3", "8", "15" ]
+
+  - id: q1_with_image
+    type: number
+    prompt: "Найдите площадь закрашенной фигуры."
+    image: "10 классы 15.jpg"  # ← Просто имя файла
+    answer: 42
+
+  - id: q_flag
+    type: mcq
+    prompt: "Выберите флаг Германии."
+    options:
+      - id: a
+        label: "Россия"
+        image: "ru_flag.png"
+      - id: b
+        label: "Германия"
+        image: "de_flag.jpg"
+    answer: b
+
+  - id: q_countries_capitals
+    type: matching
+    prompt: "Сопоставьте страны и их столицы."
+    left_items:
+      - { id: "ru", label: "Россия" }
+      - { id: "fr", label: "Франция" }
+      - { id: "jp", label: "Япония" }
+    right_items:
+      - { id: "par", label: "Париж" }
+      - { id: "tok", label: "Токио" }
+      - { id: "mos", label: "Москва" }
+    answer:
+      ru: mos
+      fr: par
+      jp: tok

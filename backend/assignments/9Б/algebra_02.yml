@@ -1,0 +1,42 @@
+﻿title: 'Квадратные уравнения: корни'
+description_latex: Решите квадратные уравнения и запишите указанный корень.
+questions:
+- id: geom_001
+  type: number
+  points: 1
+  prompt_latex: |
+    В угол $C$ величиной $83^\circ$ вписана окружность, которая касается сторон угла
+    в точках $A$ и $B$, точка $O$ — центр окружности. Найдите угол $\angle AOB$.
+    Ответ дайте в градусах.
+
+    \begin{center}
+    \begin{tikzpicture}[scale=0.75]
+
+    \coordinate (C) at (0,0);
+
+    \def\d{2.5}
+    \pgfmathsetmacro{\r}{\d*sin(41.5)}
+
+    \coordinate (O) at ({\d*cos(41.5)},{\d*sin(41.5)});
+    \coordinate (D) at (3.8,0);
+    \coordinate (E) at ({3.8*cos(83)},{3.8*sin(83)});
+
+    \coordinate (B) at ($(C)!(O)!(D)$);
+    \coordinate (A) at ($(C)!(O)!(E)$);
+
+    \draw[thick] (C) -- (A);
+    \draw[thick] (C) -- (B);
+    \draw[thick] (O) circle (\r);
+    \draw[thick] (O) -- (A);
+    \draw[thick] (O) -- (B);
+
+    \fill (C) circle (2pt) node[below left] {$C$};
+    \fill (O) circle (2pt) node[right] {$O$};
+    \fill (A) circle (2pt) node[left] {$A$};
+    \fill (B) circle (2pt) node[below] {$B$};
+
+    \end{tikzpicture}
+    \end{center}
+  answer:
+    value: 97
+    tol: 0
