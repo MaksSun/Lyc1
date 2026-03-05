@@ -14,7 +14,9 @@ export type TokenType =
   | "VVERH" | "VNIZ" | "VLEVO" | "VPRAVO" | "ZAKRASIT"
   | "NZ" | "KZ" | "POKA" | "ESLI" | "TO" | "INACHE" | "VSE"
   | "SLEVA" | "SPRAVA" | "SVERHU" | "SNIZU" | "SVOBODNO"
-  | "NE" | "I" | "ILI" | "LPAREN" | "RPAREN" | "NUMBER" | "RAZ" | "EOF";
+  | "NE" | "I" | "ILI" | "LPAREN" | "RPAREN" | "NUMBER" | "RAZ"
+  | "STENA" | "KLETKA" | "ZAKRASHENA" | "CHISTAYA"
+  | "EOF";
 
 export interface Token { type: TokenType; value: string; line: number; }
 
@@ -25,6 +27,7 @@ const KEYWORDS: Record<string, TokenType> = {
   "слева": "SLEVA", "справа": "SPRAVA", "сверху": "SVERHU", "снизу": "SNIZU",
   "свободно": "SVOBODNO", "не": "NE", "и": "I", "или": "ILI",
   "раз": "RAZ",
+  "стена": "STENA", "клетка": "KLETKA", "закрашена": "ZAKRASHENA", "чистая": "CHISTAYA",
 };
 
 export function tokenize(source: string): Token[] {
@@ -73,6 +76,7 @@ export type ASTNode =
 
 export type ConditionNode =
   | { kind: "Check"; direction: "up" | "down" | "left" | "right"; line: number }
+  | { kind: "CellCheck"; check: "painted" | "clean"; line: number }
   | { kind: "Not"; operand: ConditionNode; line: number }
   | { kind: "And"; left: ConditionNode; right: ConditionNode; line: number }
   | { kind: "Or"; left: ConditionNode; right: ConditionNode; line: number };
@@ -178,13 +182,38 @@ class Parser {
       this.expect("RPAREN");
       return c;
     }
+    if (tok.type === "KLETKA") {
+      this.advance();
+      const next = this.peek();
+      if (next.type === "ZAKRASHENA") {
+        this.advance();
+        return { kind: "CellCheck", check: "painted", line: tok.line };
+      }
+      if (next.type === "CHISTAYA") {
+        this.advance();
+        return { kind: "CellCheck", check: "clean", line: tok.line };
+      }
+      throw new SyntaxError(`После "клетка" ожидалось "закрашена" или "чистая", получено "${next.value}" (строка ${next.line})`);
+    }
     let dir: "up" | "down" | "left" | "right" | null = null;
     if (tok.type === "SLEVA") dir = "left";
     else if (tok.type === "SPRAVA") dir = "right";
     else if (tok.type === "SVERHU") dir = "up";
     else if (tok.type === "SNIZU") dir = "down";
-    if (dir) { this.advance(); this.expect("SVOBODNO"); return { kind: "Check", direction: dir, line: tok.line }; }
-    throw new SyntaxError(`Ожидалось условие (слева/справа/сверху/снизу свободно), получено "${tok.value}" (строка ${tok.line})`);
+    if (dir) {
+      this.advance();
+      const next = this.peek();
+      if (next.type === "SVOBODNO") {
+        this.advance();
+        return { kind: "Check", direction: dir, line: tok.line };
+      }
+      if (next.type === "STENA") {
+        this.advance();
+        return { kind: "Not", operand: { kind: "Check", direction: dir, line: tok.line }, line: tok.line };
+      }
+      throw new SyntaxError(`После направления ожидалось "свободно" или "стена", получено "${next.value}" (строка ${next.line})`);
+    }
+    throw new SyntaxError(`Ожидалось условие (слева/справа/сверху/снизу свободно/стена, клетка закрашена/чистая), получено "${tok.value}" (строка ${tok.line})`);
   }
 }
 
@@ -206,10 +235,18 @@ export interface CheckStep {
   line: number;
 }
 
+export interface CellCheckStep {
+  type: "cellCheck";
+  check: "painted" | "clean";
+  line: number;
+}
+
 // ActionCallback: called for move/paint — return true to continue, false to stop
 export type ActionCallback = (step: ActionStep) => Promise<boolean>;
 // CheckCallback: called for condition checks — return boolean result of the check
 export type CheckCallback = (step: CheckStep) => boolean;
+// CellCheckCallback: called for cell state checks — return boolean result
+export type CellCheckCallback = (step: CellCheckStep) => boolean;
 
 const MAX_STEPS = 10000;
 
@@ -217,16 +254,14 @@ const MAX_STEPS = 10000;
 
 export class Interpreter {
   private actionCount = 0;
-  // Optional callback: called when a loop jumps back to condition (new iteration)
   onLoopJump?: (line: number) => void;
-  // Optional callback: called when loop exits (condition false) — highlights кц line
   onLoopEnd?: (endLine: number) => void;
-  // Optional callback: called on each нц N раз iteration start
   onRepeatIter?: (line: number, current: number, total: number) => void;
-  // Optional callback: called when если condition evaluated
   onIfCheck?: (line: number, result: boolean) => void;
-  // Optional callback: called when entering то or иначе branch
   onIfBranch?: (branchLine: number) => void;
+  onHighlightLine?: (line: number) => void;
+  delay?: () => Promise<void>;
+  onCellCheck?: CellCheckCallback;
 
   async execute(
     ast: ASTNode,
@@ -262,31 +297,38 @@ export class Interpreter {
       while (true) {
         if (++iters > MAX_STEPS)
           throw new Error("Превышено максимальное количество итераций цикла.");
+        if (this.onHighlightLine) this.onHighlightLine(node.line);
         const cond = this.evalCond(node.condition, onCheck);
+        if (this.delay) await this.delay();
         if (!cond) {
-          // Notify loopEnd: highlight кц line when condition is false
           if (this.onLoopEnd) this.onLoopEnd(node.endLine);
+          if (this.delay) await this.delay();
           break;
         }
         for (const c of node.body) await this.run(c, onAction, onCheck);
-        // Notify loopJump (new iteration): flash нц line
         if (this.onLoopJump) this.onLoopJump(node.line);
       }
 
     } else if (node.kind === "RepeatLoop") {
       for (let i = 0; i < node.count; i++) {
         if (this.onRepeatIter) this.onRepeatIter(node.line, i + 1, node.count);
+        if (this.onHighlightLine) this.onHighlightLine(node.line);
+        if (this.delay) await this.delay();
         for (const c of node.body) await this.run(c, onAction, onCheck);
       }
 
     } else if (node.kind === "IfStatement") {
+      if (this.onHighlightLine) this.onHighlightLine(node.line);
       const cond = this.evalCond(node.condition, onCheck);
       if (this.onIfCheck) this.onIfCheck(node.line, cond);
+      if (this.delay) await this.delay();
       if (cond) {
         if (this.onIfBranch) this.onIfBranch(node.thenLine);
+        if (this.delay) await this.delay();
         for (const c of node.then) await this.run(c, onAction, onCheck);
       } else if (node.else) {
         if (this.onIfBranch) this.onIfBranch(node.elseLine ?? node.thenLine);
+        if (this.delay) await this.delay();
         for (const c of node.else) await this.run(c, onAction, onCheck);
       }
     }
@@ -295,6 +337,10 @@ export class Interpreter {
   private evalCond(cond: ConditionNode, onCheck: CheckCallback): boolean {
     if (cond.kind === "Check") {
       return onCheck({ type: "check", direction: cond.direction, line: cond.line });
+    }
+    if (cond.kind === "CellCheck") {
+      if (this.onCellCheck) return this.onCellCheck({ type: "cellCheck", check: cond.check, line: cond.line });
+      return false;
     }
     if (cond.kind === "Not") return !this.evalCond(cond.operand, onCheck);
     if (cond.kind === "And") {
@@ -328,6 +374,10 @@ export interface VirtualState {
   painted: Set<string>;
 }
 
+function vCellPainted(vs: VirtualState): boolean {
+  return vs.painted.has(`${vs.row}:${vs.col}`);
+}
+
 function vIsFree(vs: VirtualState, dir: "up" | "down" | "left" | "right"): boolean {
   const { row, col } = vs;
   if (dir === "up") {
@@ -357,15 +407,16 @@ function vMove(vs: VirtualState, dir: "up" | "down" | "left" | "right"): void {
 }
 
 export interface CompiledStep {
-  type: "move" | "paint" | "check" | "loopJump" | "loopEnd" | "useRobot" | "repeatIter" | "ifCheck" | "ifBranch";
+  type: "move" | "paint" | "check" | "loopJump" | "loopEnd" | "useRobot" | "repeatIter" | "ifCheck" | "ifBranch" | "cellCheck";
   direction?: "up" | "down" | "left" | "right";
   line: number;
-  crashed?: boolean;    // true if this move hits a wall
-  checkResult?: boolean; // result of condition check
-  checkRow?: number;    // position of robot when check was made
+  crashed?: boolean;
+  checkResult?: boolean;
+  checkRow?: number;
   checkCol?: number;
-  iterCurrent?: number; // for repeatIter: current iteration (1-based)
-  iterTotal?: number;   // for repeatIter: total iterations
+  iterCurrent?: number;
+  iterTotal?: number;
+  cellCheck?: "painted" | "clean";
 }
 
 export interface CompileResult {
@@ -391,6 +442,7 @@ export function compile(ast: ASTNode, initialState: VirtualState, useRobotLine?:
 
   function evalCond(cond: ConditionNode): boolean {
     if (cond.kind === "Check") return vIsFree(vs, cond.direction);
+    if (cond.kind === "CellCheck") return cond.check === "painted" ? vCellPainted(vs) : !vCellPainted(vs);
     if (cond.kind === "Not") return !evalCond(cond.operand);
     if (cond.kind === "And") return evalCond(cond.left) && evalCond(cond.right);
     if (cond.kind === "Or") return evalCond(cond.left) || evalCond(cond.right);
@@ -422,13 +474,17 @@ export function compile(ast: ASTNode, initialState: VirtualState, useRobotLine?:
 
     } else if (node.kind === "WhileLoop") {
       let iters = 0;
-      // Emit check step at loop entry
       const emitLoopCheck = (condNode: typeof node.condition): boolean => {
-        const dir = condNode.kind === "Check" ? condNode.direction
-          : condNode.kind === "Not" && condNode.operand.kind === "Check" ? condNode.operand.direction
-          : undefined;
         const result = evalCond(condNode);
-        steps.push({ type: "check", direction: dir, line: node.line, checkResult: result, checkRow: vs.row, checkCol: vs.col });
+        if (condNode.kind === "CellCheck" || (condNode.kind === "Not" && condNode.operand.kind === "CellCheck")) {
+          const cc = condNode.kind === "CellCheck" ? condNode : condNode.operand as Extract<ConditionNode, {kind: "CellCheck"}>;
+          steps.push({ type: "cellCheck", line: node.line, checkResult: result, checkRow: vs.row, checkCol: vs.col, cellCheck: cc.check });
+        } else {
+          const dir = condNode.kind === "Check" ? condNode.direction
+            : condNode.kind === "Not" && condNode.operand.kind === "Check" ? condNode.operand.direction
+            : undefined;
+          steps.push({ type: "check", direction: dir, line: node.line, checkResult: result, checkRow: vs.row, checkCol: vs.col });
+        }
         return result;
       };
       while (emitLoopCheck(node.condition)) {
@@ -438,15 +494,12 @@ export function compile(ast: ASTNode, initialState: VirtualState, useRobotLine?:
           if (err) return err;
         }
         if (steps.length > MAX_STEPS) return "Превышено максимальное количество шагов.";
-        // loopJump: jump back to condition check
         steps.push({ type: "loopJump", line: node.line, checkRow: vs.row, checkCol: vs.col });
       }
-      // loopEnd: highlight кц line when condition is false (loop exits)
       steps.push({ type: "loopEnd", line: node.endLine });
 
     } else if (node.kind === "RepeatLoop") {
       for (let i = 0; i < node.count; i++) {
-        // repeatIter: show iteration counter on нц N раз line
         steps.push({ type: "repeatIter", line: node.line, iterCurrent: i + 1, iterTotal: node.count });
         for (const c of node.body) {
           const err = runNode(c);
@@ -455,21 +508,23 @@ export function compile(ast: ASTNode, initialState: VirtualState, useRobotLine?:
       }
 
     } else if (node.kind === "IfStatement") {
-      const dir = node.condition.kind === "Check" ? node.condition.direction
-        : node.condition.kind === "Not" && node.condition.operand.kind === "Check" ? node.condition.operand.direction
-        : undefined;
       const condResult = evalCond(node.condition);
-      // ifCheck: highlight если line with condition result
-      steps.push({ type: "ifCheck", direction: dir, line: node.line, checkResult: condResult, checkRow: vs.row, checkCol: vs.col });
+      if (node.condition.kind === "CellCheck" || (node.condition.kind === "Not" && node.condition.operand.kind === "CellCheck")) {
+        const cc = node.condition.kind === "CellCheck" ? node.condition : node.condition.operand as Extract<ConditionNode, {kind: "CellCheck"}>;
+        steps.push({ type: "cellCheck", line: node.line, checkResult: condResult, checkRow: vs.row, checkCol: vs.col, cellCheck: cc.check });
+      } else {
+        const dir = node.condition.kind === "Check" ? node.condition.direction
+          : node.condition.kind === "Not" && node.condition.operand.kind === "Check" ? node.condition.operand.direction
+          : undefined;
+        steps.push({ type: "ifCheck", direction: dir, line: node.line, checkResult: condResult, checkRow: vs.row, checkCol: vs.col });
+      }
       if (condResult) {
-        // ifBranch: highlight то line
         steps.push({ type: "ifBranch", line: node.thenLine });
         for (const c of node.then) {
           const err = runNode(c);
           if (err) return err;
         }
       } else if (node.else) {
-        // ifBranch: highlight иначе line
         steps.push({ type: "ifBranch", line: node.elseLine ?? node.thenLine });
         for (const c of node.else) {
           const err = runNode(c);

@@ -23,7 +23,7 @@
 import { useReducer, useRef, useCallback, useState } from "react";
 import { gameReducer } from "../lib/gameReducer";
 import { createEmptyGameState, isFree, posKey, LevelDefinition } from "../lib/gameTypes";
-import { parse, Interpreter, ActionStep, CheckStep, compile, CompiledStep, VirtualState } from "../lib/parser";
+import { parse, Interpreter, ActionStep, CheckStep, compile, CompiledStep, VirtualState, CellCheckStep } from "../lib/parser";
 
 const DEFAULT_ROWS = 7;
 const DEFAULT_COLS = 9;
@@ -200,29 +200,37 @@ export function useGameEngine() {
       return result;
     };
 
-    // onLoopJump: called when loop jumps back to condition (new iteration)
+    interpreter.delay = () => {
+      if (stopRef.current) throw new Error("STOPPED");
+      return new Promise<void>((r) => setTimeout(r, Math.max(speedRef.current * 0.6, 80)));
+    };
+    interpreter.onHighlightLine = (line: number) => {
+      dispatch({ type: "SET_CURRENT_LINE", line });
+    };
     interpreter.onLoopJump = (line: number) => {
       dispatch({ type: "LOOP_FLASH", line });
-      setTimeout(() => dispatch({ type: "LOOP_FLASH", line: null }), 300);
     };
-    // onLoopEnd: called when loop condition is false (кц line highlight)
     interpreter.onLoopEnd = (endLine: number) => {
       dispatch({ type: "COND_FLASH", line: endLine, result: false });
-      setTimeout(() => dispatch({ type: "COND_FLASH", line: null, result: null }), Math.min(speedRef.current * 0.8, 600));
+      dispatch({ type: "SET_CURRENT_LINE", line: endLine });
     };
-    // onRepeatIter: called at each нц N раз iteration
     interpreter.onRepeatIter = (line: number, current: number, total: number) => {
       dispatch({ type: "REPEAT_ITER", line, current, total });
     };
-    // onIfCheck: called when если condition is evaluated
     interpreter.onIfCheck = (line: number, result: boolean) => {
       dispatch({ type: "IF_FLASH", line, result });
-      setTimeout(() => dispatch({ type: "IF_FLASH", line: null, result: null }), Math.min(speedRef.current * 0.6, 500));
     };
-    // onIfBranch: called when entering то or иначе branch
     interpreter.onIfBranch = (branchLine: number) => {
       dispatch({ type: "IF_BRANCH", line: branchLine });
-      setTimeout(() => dispatch({ type: "IF_BRANCH", line: null }), Math.min(speedRef.current * 0.6, 500));
+      dispatch({ type: "SET_CURRENT_LINE", line: branchLine });
+    };
+    interpreter.onCellCheck = (step: CellCheckStep): boolean => {
+      const isPainted = localPainted.has(posKey(localRobot));
+      const result = step.check === "painted" ? isPainted : !isPainted;
+      localTickCount++;
+      dispatch({ type: "INC_TICK" });
+      dispatch({ type: "COND_FLASH", line: step.line, result });
+      return result;
     };
 
     try {
@@ -370,13 +378,12 @@ export function useGameEngine() {
       dispatch({ type: "ROBOT_FLASH", value: true });
       // Auto-clear robot flash after next step
       setTimeout(() => dispatch({ type: "ROBOT_FLASH", value: false }), 800);
-    } else if (step.type === "loopJump" || step.type === "loopEnd" || step.type === "check") {
-      // Clear currentLine so only condFlashLine/loopFlashLine shows
-      dispatch({ type: "SET_CURRENT_LINE", line: -1 });
+    } else if (step.type === "loopJump" || step.type === "loopEnd" || step.type === "check" || step.type === "cellCheck") {
+      dispatch({ type: "SET_CURRENT_LINE", line: step.line });
       dispatch({ type: "IF_FLASH", line: null, result: null });
       dispatch({ type: "IF_BRANCH", line: null });
     } else if (step.type === "repeatIter" || step.type === "ifCheck" || step.type === "ifBranch") {
-      dispatch({ type: "SET_CURRENT_LINE", line: -1 });
+      dispatch({ type: "SET_CURRENT_LINE", line: step.line });
       dispatch({ type: "COND_FLASH", line: null, result: null });
     }
 
@@ -455,8 +462,11 @@ export function useGameEngine() {
       stepTickCountRef.current++;
       dispatch({ type: "INC_TICK" });
     } else if (step.type === "ifBranch") {
-      // Highlight то or иначе line
       dispatch({ type: "IF_BRANCH", line: step.line });
+    } else if (step.type === "cellCheck") {
+      dispatch({ type: "COND_FLASH", line: step.line, result: step.checkResult ?? null });
+      stepTickCountRef.current++;
+      dispatch({ type: "INC_TICK" });
     }
   }, []);
 

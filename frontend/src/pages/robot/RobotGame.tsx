@@ -151,6 +151,9 @@ function CodeEditor({
       .replace(/\b(вверх|вниз|влево|вправо|закрасить)\b/g, '<span style="color:#00FF88">$1</span>')
       .replace(/\b(слева|справа|сверху|снизу)\b/g, '<span style="color:#F59E0B">$1</span>')
       .replace(/\b(свободно)\b/g, '<span style="color:#FCD34D">$1</span>')
+      .replace(/\b(стена)\b/g, '<span style="color:#EF4444">$1</span>')
+      .replace(/\b(клетка)\b/g, '<span style="color:#F59E0B">$1</span>')
+      .replace(/\b(закрашена|чистая)\b/g, '<span style="color:#FCD34D">$1</span>')
       .replace(/\b(не|и|или)\b/g, '<span style="color:#A78BFA">$1</span>')
       .replace(/\b(\d+)\b/g, '<span style="color:#FB923C">$1</span>')
       .replace(/\b(раз)\b/g, '<span style="color:#60A5FA">$1</span>')
@@ -602,18 +605,30 @@ export default function RobotGame() {
     { label: "нц пока свободно ↓", cmd: "нц пока снизу свободно\n  вниз\nкц", group: "loop" },
     { label: "нц пока свободно ←", cmd: "нц пока слева свободно\n  влево\nкц", group: "loop" },
     { label: "нц N раз", cmd: "нц 3 раз\n  вправо\nкц", group: "loop" },
+    // Wall-based loops (KUMIR)
+    { label: "нц пока стена →", cmd: "нц пока справа стена\n  вниз\nкц", group: "loop" },
+    { label: "нц пока стена ↑", cmd: "нц пока сверху стена\n  вправо\nкц", group: "loop" },
     // Conditionals
     { label: "если справа свободно", cmd: "если справа свободно то\n  вправо\nиначе\n  вниз\nвсе", group: "cond" },
     { label: "если слева свободно", cmd: "если слева свободно то\n  влево\nиначе\n  вниз\nвсе", group: "cond" },
     { label: "если сверху свободно", cmd: "если сверху свободно то\n  вверх\nиначе\n  вправо\nвсе", group: "cond" },
     { label: "если снизу свободно", cmd: "если снизу свободно то\n  вниз\nиначе\n  вправо\nвсе", group: "cond" },
+    // Wall conditionals (KUMIR)
+    { label: "если справа стена", cmd: "если справа стена то\n  вниз\nиначе\n  вправо\nвсе", group: "cond" },
+    { label: "если клетка закрашена", cmd: "если клетка закрашена то\n  вправо\nвсе", group: "cond" },
     // Checks (for manual use inside loops/ifs)
     { label: "справа свободно", cmd: "справа свободно", group: "check" },
     { label: "слева свободно", cmd: "слева свободно", group: "check" },
     { label: "сверху свободно", cmd: "сверху свободно", group: "check" },
     { label: "снизу свободно", cmd: "снизу свободно", group: "check" },
-    { label: "не справа свободно", cmd: "не справа свободно", group: "check" },
-    { label: "не слева свободно", cmd: "не слева свободно", group: "check" },
+    // Wall checks (KUMIR)
+    { label: "справа стена", cmd: "справа стена", group: "wall" },
+    { label: "слева стена", cmd: "слева стена", group: "wall" },
+    { label: "сверху стена", cmd: "сверху стена", group: "wall" },
+    { label: "снизу стена", cmd: "снизу стена", group: "wall" },
+    // Cell checks (KUMIR)
+    { label: "клетка закрашена", cmd: "клетка закрашена", group: "wall" },
+    { label: "клетка чистая", cmd: "клетка чистая", group: "wall" },
     // Logical
     { label: "и", cmd: "и", group: "logic" },
     { label: "или", cmd: "или", group: "logic" },
@@ -625,6 +640,7 @@ export default function RobotGame() {
     loop:  { color: "#60A5FA", border: "#60A5FA40" },
     cond:  { color: "#C084FC", border: "#C084FC40" },
     check: { color: "#F59E0B", border: "#F59E0B40" },
+    wall:  { color: "#EF4444", border: "#EF444440" },
     logic: { color: "#A78BFA", border: "#A78BFA40" },
   };
 
